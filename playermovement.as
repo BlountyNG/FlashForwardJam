@@ -1,7 +1,11 @@
 ﻿//WALKING FUNCTION
 function mainWalk():Void
 {
-	
+	if(Key.isDown(16))
+	{
+		mainSpeed = mainSpeed*1.5;
+	}
+
  	//if the "A" key or Left Arrow Key is Down
 	if(Key.isDown(37) || Key.isDown(65))
 	{
@@ -34,7 +38,15 @@ function mainWalk():Void
 //JUMPING FUNCTION
 function mainJump():Void
 {
-
+	if(mainJumping)
+	{
+		mainSpeed = 5;
+	}
+	else
+	{
+		mainSpeed = 10;
+	}
+	
 	//if main isn't already jumping
 	if(!mainJumping)
 	{
