@@ -1,9 +1,10 @@
 ﻿//WALKING FUNCTION
 function mainWalk():Void
 {
-	if(Key.isDown(16))
+	if(Key.isDown(16))//sprint
 	{
-		mainSpeed = mainSpeed*1.5;
+		mainSpeed = sprintSpeed;
+		trace('sprint');
 	}
 
  	//if the "A" key or Left Arrow Key is Down
@@ -40,11 +41,11 @@ function mainJump():Void
 {
 	if(mainJumping)
 	{
-		mainSpeed = 5;
+		mainSpeed = jumpSpeed;
 	}
-	else
+	else(!mainJumping)
 	{
-		mainSpeed = 10;
+		mainSpeed = runSpeed;
 	}
 	
 	//if main isn't already jumping
@@ -71,33 +72,9 @@ function mainJump():Void
 			{
 			jumpSpeed *= 1 + jumpImpulsion/50;
 			}
-		mcMain._y += jumpSpeed-3;
-		//if main hits the floor, then stop jumping
-		//we'll have to change this however when we create the blocks in the level
-		if(mcMain._y >= Stage.height /*- mcMain._height*/){
-			mainJumping = false;
-			mainOnGround = true;
-			mcMain._y = Stage.height /*- mcMain._height*/;
-		}
+		mcMain._y += jumpSpeed-10;
 		
 	}
-
-}
-
-//Gravity Function
-function mainGravity():Void
-{
-
-if(mcMain._y >= Stage.height /*- mcMain._height*/)
-	{
-		mainOnGround = true;
-		mcMain._y = Stage.height /*- mcMain._height*/;
-	}
-
-if (!mainOnGround)
-		{
-		mcMain._y += gravity++;
-		}
 }
 
 //Animation Functions
@@ -107,6 +84,7 @@ function mainAnimate():Void
 	if (jumpSpeed > 1 && mainJumping)
 	{
 		mcMain.gotoAndStop(4);
+		trace('falling');
 	}
 	
 	//Jumping Animation
