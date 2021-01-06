@@ -51,7 +51,7 @@ function mainJump():Void
 	//if main isn't already jumping
 	if(!mainJumping)
 	{
-		if(Key.isDown(38) || Key.isDown(87)){
+		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32)){
 		//then start jumping
 		mainJumping = true;
 		jumpSpeed = jumpImpulsion*-1;
@@ -85,11 +85,13 @@ function mainAnimate():Void
 	{
 		mcMain.gotoAndStop(4);
 		trace('falling');
+		trace(jumpSpeed);
 	}
 	
 	//Jumping Animation
 	else if(mainJumping)
 	{
+		trace('jumping');
 		mcMain.gotoAndStop(3);
 	}
 	
