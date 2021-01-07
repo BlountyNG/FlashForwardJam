@@ -3,15 +3,19 @@ function mainWalk():Void
 {
 	if(Key.isDown(16))//sprint
 	{
-		mainSpeed = sprintSpeed;
+		_global.currentSpeed = mainSpeed*1.5;
 		trace('sprint');
+	}
+	else
+	{
+		_global.currentSpeed = mainSpeed;
 	}
 
  	//if the "A" key or Left Arrow Key is Down
 	if(Key.isDown(37) || Key.isDown(65))
 	{
 		//then move left
-		mcMain._x -= mainSpeed;
+		mcMain._x -= _global.currentSpeed;
 		//Flip left
 		mcMain._xscale =-100;
 		//set running
@@ -22,13 +26,13 @@ function mainWalk():Void
 	else if(Key.isDown(39) || Key.isDown(68))
 	{
 		 //then move the guy to the right
-		mcMain._x += mainSpeed;
+		mcMain._x += _global.currentSpeed;
 		//Flip Right
 		mcMain._xscale =100;
 		//set running
 		mainRunning = true;
 	}
-	
+
 	else
 	{
 		mainRunning = false;
@@ -41,68 +45,39 @@ function mainJump():Void
 {
 	if(mainJumping)
 	{
-		mainSpeed = jumpSpeed;
+		currentSpeed = jumpMoveSpeed;
 	}
 	else(!mainJumping)
 	{
-		mainSpeed = runSpeed;
+		currentSpeed = mainSpeed;
 	}
 	
 	//if main isn't already jumping
 	if(!mainJumping)
 	{
-		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32)){
+		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32))
+		{
 		//then start jumping
 		mainJumping = true;
-		jumpSpeed = jumpImpulsion*-1;
+		jumpSpeed = jumpImpulsion*-2;
 		mcMain._y += jumpSpeed;
+		}
 	}
-}
 	else
 	{
 		//if we're already jumping, then continue to do so
 		if(jumpSpeed < 0)
-			{
+		{
 			jumpSpeed *= 1 - jumpImpulsion/75;
-			if(jumpSpeed > -jumpImpulsion*.2){
+			if(jumpSpeed > -jumpImpulsion*.4){
 				jumpSpeed *= -.2;
 		}
 }
 		if(jumpSpeed > 0 && jumpSpeed <= jumpImpulsion)
-			{
-			jumpSpeed *= 1 + jumpImpulsion/50;
-			}
-		mcMain._y += jumpSpeed-10;
+		{
+			jumpSpeed *= 1 + jumpImpulsion/35;
+		}
+			mcMain._y += jumpSpeed-10;
 		
 	}
-}
-
-//Animation Functions
-function mainAnimate():Void
-{
-	//Falling Animatiom
-	if (jumpSpeed > 1 && mainJumping)
-	{
-		mcMain.gotoAndStop(4);
-		trace('falling');
-		trace(jumpSpeed);
-	}
-	
-	//Jumping Animation
-	else if(mainJumping)
-	{
-		trace('jumping');
-		mcMain.gotoAndStop(3);
-	}
-	
-	//Running Animation
-	else if(mainRunning)
-	{
-		mcMain.gotoAndStop(2);
-	}
-	else
-	{
-		mcMain.gotoAndStop(1);
-	}
-
 }

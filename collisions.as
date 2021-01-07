@@ -1,60 +1,55 @@
 ﻿//Collisions
-var hit:Number = 0;
-var collide:Number = 1;
 function mainCollisions():Void
-
 {
-
-		if(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y -4 , true))
+		//Move Player Up
+		while (_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
 		{
 			trace(hit);
-			trace('down');
+			trace('up');
 			hit = hit + 1;
 			mainJumping = false;
 			mcMain._y -= gravity;
 		}
-		
-		if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y +4, true))
+		//Move Player Down
+		if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true))
 		{
-			trace('up');
-			mainJumping = true;
+			trace('down');
 			mcMain._y += gravity;
 		}
-		
-		if(_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y - (_root.mcMain._height), true))
+		//Bounce Head
+		while(_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y - (_root.mcMain._height), true))
 		{
 			trace('bounce head');
-			mcMain._y += jumpImpulsion*2;
+			mcMain._y += collide;
 		}
-		
-		if(_root.ground.hitTest(_root.mcMain._x - (_root.mcMain._width/2),_root.mcMain._y - (_root.mcMain._width/2), true) && mainJumping)
+		//Jump Bounce Left
+		if(_root.ground.hitTest(_root.mcMain._x - (_root.mcMain._width/2),_root.mcMain._y - (_root.mcMain._height/4), true) && mainJumping)
 		{
-			_root.mainSpeed = 0;
 			trace('jump bounce left');
-			mcMain._x += collide;
-			mcMain._y += collide;
+			mcMain._x += mainSpeed;
+			mcMain._y += .01;
+			
 		}
-		
-		if(_root.ground.hitTest(_root.mcMain._x + (_root.mcMain._width/2),_root.mcMain._y - (_root.mcMain._height/2), true) && mainJumping)
+		//Jump Bounce Right
+		if(_root.ground.hitTest(_root.mcMain._x + (_root.mcMain._width/2),_root.mcMain._y - (_root.mcMain._height/4), true) && mainJumping)
 		{
-			_root.mainSpeed = 0;
 			trace('jump bounce right');
-			mcMain._x -= collide;
-			mcMain._y += collide;
+			mcMain._x -= mainSpeed;
+			mcMain._y += .01;
+			
 		}
-		
-		if(_root.ground.hitTest(_root.mcMain._x - (_root.mcMain._width/2),_root.mcMain._y - (_root.mcMain._width/2), true))
+		//Bounce Left
+		if(_root.ground.hitTest(_root.mcMain._x - (_root.mcMain._width/2),_root.mcMain._y - (_root.mcMain._height/2), true) && !mainJumping)
 		{
-			_root.mainSpeed = 0;
 			trace('bounce left');
-			mcMain._x += collide;
+			mcMain._x += _global.currentSpeed;
+			
 		}
-		
-		if(_root.ground.hitTest(_root.mcMain._x + (_root.mcMain._width/2),_root.mcMain._y - (_root.mcMain._height/2), true))
+		//Bounce Right
+		if(_root.ground.hitTest(_root.mcMain._x + (_root.mcMain._width/2),_root.mcMain._y - (_root.mcMain._height/2), true) && !mainJumping)
 		{
-			_root.mainSpeed = 0;
 			trace('bounce right');
-			mcMain._x -= collide;
+			mcMain._x -= _global.currentSpeed;
+			
 		}
-		
 }

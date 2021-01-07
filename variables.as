@@ -1,8 +1,7 @@
 ﻿//The main speeds of the character
-var mainSpeed:Number = 7;
-var runSpeed:Number = mainSpeed;
-var sprintSpeed:Number = 10;
-var jumpSpeed:Number = 7;
+var mainSpeed:Number = 5;
+var currentSpeed:Number;
+var jumpMoveSpeed:Number = 5;
 var gravity:Number = 5;
 
 var mainRunning:Boolean = false;
@@ -18,4 +17,5 @@ var jumpSpeed:Number = jumpImpulsion;
 
 
 //COLLISION VARIABLES
-var mainOnGround:Boolean = false;
+var hit:Number = 0;
+var collide:Number = 0.1;
