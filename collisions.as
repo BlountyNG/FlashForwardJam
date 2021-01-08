@@ -1,6 +1,13 @@
 ﻿//Collisions
 function mainCollisions():Void
 {
+		//Death Box
+		if (_root.deathBox.hitTest(_root.mcMain._x , _root.mcMain._y, true))
+		{
+			trace ('death')
+			gotoAndStop(2);
+
+		}
 		//Move Player Up
 		while (_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
 		{
@@ -52,4 +59,7 @@ function mainCollisions():Void
 			mcMain._x -= _global.currentSpeed;
 			
 		}
+		
+		
+		
 }
