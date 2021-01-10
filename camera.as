@@ -13,8 +13,9 @@ _root.camFrame._y = (interpolatedPoint.y);
 
 	if(mainJumping)
 	{
-	_root.camFrame._y = (interpolatedPoint.y) + (interpolatedPoint.y/10);
+	_root.camFrame._y = (interpolatedPoint.y) - (interpolatedPoint.y/10);
 	}
+	
 	else
 	{
 	_root.camFrame._y = (interpolatedPoint.y);
