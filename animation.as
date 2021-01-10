@@ -10,7 +10,7 @@ function mainAnimate():Void
 	//Jumping Animation
 	else if(mainJumping)
 	{
-		trace('jumping');
+		//trace('jumping');
 		mcMain.gotoAndStop(3);
 		break;
 	}
