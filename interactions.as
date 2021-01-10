@@ -1,27 +1,22 @@
 ﻿function mainInteractions():Void
 {
-	//Jump Pad Up
-	//Stores depth
-	var depth:Number = jumpPad.getDepth();
-	//trace(jumpPads.getDepth(i));//traces at 3
-	//Stores jumpPads
 	var jumpPadsArray:Array = new Array();
-	//trace(jumpPadsArray);
-	//checks depth progressively
-	for(var i:Number = 0; i < depth; i++)
+	for(var i in jumpPads)
 	{
-		//if jumpPads movieclip contains an instance within it becomes jumpPad
-		if (jumpPads.getInstanceAtDepth(i) == jumpPad)
+	jumpPadsArray.push([i]);
+	}
+	
+	//Jump Pad Up
+		for (j = 0; j < jumpPadsArray.length+1; j++)
 		{
-			//What I want jumpPad to test for
-			if (_root.mcMain.hitTest(jumpPad))
+			if (_root.mcMain.hitTest("_root.jumpPads.instance" + [j]))
 			{
 			trace('PadUp');
 			jumpSpeed = jumpImpulsion*-4;
 			mcMain._y += jumpSpeed;
 			mainJumping = true;
-			jumpPadsArray.push(getInstanceAtDepth(i));
 			}
 		}
-	}
+	
+			
 }
