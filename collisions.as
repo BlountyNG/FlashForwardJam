@@ -35,7 +35,7 @@ function mainCollisions():Void
 		{
 			//trace('jump bounce left');
 			mcMain._x += _global.currentSpeed;
-			mcMain._y += .01;
+			mcMain._y += collide;
 			
 		}
 		//Jump Bounce Right
@@ -43,7 +43,7 @@ function mainCollisions():Void
 		{
 			//trace('jump bounce right');
 			mcMain._x -= _global.currentSpeed;
-			mcMain._y += .01;
+			mcMain._y += collide;
 			
 		}
 		//Bounce Left
