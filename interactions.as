@@ -4,6 +4,7 @@
 	for(var i in jumpPads)
 	{
 	jumpPadsArray.push([i]);
+	//trace(jumpPadsArray);
 	}
 	
 	//Jump Pad Up
@@ -11,12 +12,18 @@
 		{
 			if (_root.mcMain.hitTest("_root.jumpPads.instance" + [j]))
 			{
-			trace('PadUp');
+			//trace('PadUp');
 			jumpSpeed = jumpImpulsion*-4;
 			mcMain._y += jumpSpeed;
 			mainJumping = true;
 			}
 		}
-	
+		
+	if(Key.isDown(82))//R
+	{
+		//trace('Restart');
+		mcMain._x = levelStart._x;
+		mcMain._y = levelStart._y;
+	}
 			
 }

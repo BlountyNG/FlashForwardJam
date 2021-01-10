@@ -19,3 +19,6 @@ var jumpSpeed:Number = jumpImpulsion;
 //COLLISION VARIABLES
 var hit:Number = 0;
 var collide:Number = 0.1;
+
+//Level Variables
+var currentLevel:Number = 1;
