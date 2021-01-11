@@ -10,15 +10,5 @@ var interpolatedPoint:Point = Point.interpolate(point_1, point_2, .5);
 
 _root.camFrame._x = (interpolatedPoint.x);
 _root.camFrame._y = (interpolatedPoint.y);
-
-	if(mainJumping)
-	{
-	_root.camFrame._y = (interpolatedPoint.y) - (interpolatedPoint.y/10);
-	}
-	
-	else
-	{
-	_root.camFrame._y = (interpolatedPoint.y);
-	}
 }
 

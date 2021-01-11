@@ -6,13 +6,13 @@
 	jumpPadsArray.push([i]);
 	//trace(jumpPadsArray);
 	}
-	
 	//Jump Pad Up
-		for (j = 0; j < jumpPadsArray.length+1; j++)
+		for (j = 1; j < jumpPadsArray.length+1; j++)
 		{
-			if (_root.mcMain.hitTest("_root.jumpPads.instance" + [j]))
+			if (_root.mcMain.hitTest("_root.jumpPads.instance" + j))
 			{
 			//trace('PadUp');
+			//unloadMovie("_root.jumpPads.instance" + j); too remove movieclips when used
 			jumpSpeed = jumpImpulsion*-4;
 			mcMain._y += jumpSpeed;
 			mainJumping = true;
