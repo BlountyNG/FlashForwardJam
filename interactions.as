@@ -1,30 +1,30 @@
 ﻿function mainInteractions():Void
 {
-	var jumpPadsArray:Array = new Array();
-	for(var i in jumpPads) {
-		if(jumpPads[i] instanceof MovieClip) 
+	
+var JumpPads:InteractiveObj = new InteractiveObj(jumpPads, false);
+
+var clipCycle:Array = new Array();
+
+	for(var i in JumpPads.ObjName) {
+		if(JumpPads.ObjName[i] instanceof MovieClip) 
 		{
-			jumpPadsArray.push(jumpPads[i]);
+			clipCycle.push(JumpPads.ObjName[i]);
 		}
 	}
 	
 	//Jump Pad Up
-	for (j = 0; j < jumpPadsArray.length; j++)
+	for (j = 0; j < clipCycle.length; j++)
 	{
-		if (_root.mcMain.hitTest(jumpPadsArray[j]))
+		if (_root.mcMain.hitTest(clipCycle[j]))
 		{
 			trace('PadUp');
 			jumpSpeed = jumpImpulsion*-4;
 			mcMain._y += jumpSpeed;
 			mainJumping = true;
-			//unloadMovie(jumpPadsArray[j]); removes movieclip on use
-	}		
-}
-	if(Key.isDown(82))//R
-	{
-		//trace('Restart');
-		mcMain._x = levelStart._x;
-		mcMain._y = levelStart._y;
+			if(this.Collectable == true)
+			{
+			unloadMovie(clipCycle[j]);
+			}
+		}
 	}
-			
 }

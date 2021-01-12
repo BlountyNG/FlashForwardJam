@@ -1,6 +1,13 @@
 ﻿//WALKING FUNCTION
 function mainWalk():Void
 {
+	if(Key.isDown(82))//R
+	{
+		//trace('Restart');
+		mcMain._x = levelStart._x;
+		mcMain._y = levelStart._y;
+	}
+	
 	if(Key.isDown(16))//sprint
 	{
 		_global.currentSpeed = mainSpeed*1.5;
