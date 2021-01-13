@@ -68,6 +68,7 @@ function mainJump():Void
 		mainJumping = true;
 		jumpSpeed = jumpImpulsion*-2;
 		mcMain._y += jumpSpeed;
+		trace(jumpImpulsion);
 		}
 	}
 	else
