@@ -16,7 +16,7 @@ function mainCollisions():Void
 			//trace('up');
 			//hit = hit + 1;
 			mainJumping = false;
-			mcMain._y -= gravity;
+			mcMain._y -= collide;
 		}
 		//Move Player Down
 		if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true))

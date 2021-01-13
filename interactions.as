@@ -1,13 +1,10 @@
-﻿getTimer( )
-
-
-//MY INTERACTIVE OBJECTS
+﻿//MY INTERACTIVE OBJECTS
 //Regular Jump Pads
 var JumpPads:InteractiveObj = new InteractiveObj(jumpPads, false, "jumppad");
 //Destructable Jump Pads
 var DestructableJP:InteractiveObj = new InteractiveObj(DjumpPads, true, "jumppad");
-//Mega Jump Power Up
-var MegaJump:InteractiveObj = new InteractiveObj(powerUps, true, "powerup");
+//Float Jump Power Up
+var FloatJump:InteractiveObj = new InteractiveObj(powerUps, true, "float");
 
 //MY INTERACTIONS
 function mainInteractions(object:InteractiveObj):Void
@@ -21,9 +18,9 @@ var clipCycle:Array = new Array();
 		}
 	}
 	
-	//Jump Pad Up
 	for (j = 0; j < clipCycle.length; j++)
 	{
+		//Jump Pad Up
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "jumppad"))
 		{
 			//trace('PadUp');
@@ -35,16 +32,24 @@ var clipCycle:Array = new Array();
 			unloadMovie(clipCycle[j]);
 			}
 		}
-		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "powerup"))
+		//Float Power Up
+		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "float"))
 		{
-			mcMain._y -= 10;
-			gravity = -0;
+			gravity = -3;
+			//trace(gravity);
 			mainJumping = true;
+			setTimeout(restoreGravity,3000);
 			if(object.Collectable == true)
 			{
-				unloadMovie(clipCycle[j]);
+			unloadMovie(clipCycle[j]);
 			}
-			
 		}
 	}
+}
+
+function restoreGravity():Void
+{
+	mainJumping = true;
+	gravity = 5;
+	//trace(gravity);
 }
