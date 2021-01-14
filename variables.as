@@ -21,9 +21,6 @@ var hit:Number = 0;
 var collide:Number = 1;
 
 //Level Variables
-var currentLevel:Number = 1;
-
-//Timer variables
-
-var timer:Number = getTimer();
-var elapsedtime:Number;
+var currentLevel:Number = 2;
+var allowRestart:Boolean = true;
+var coinsCollected:Number = 0;

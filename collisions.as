@@ -5,8 +5,7 @@ function mainCollisions():Void
 		if (_root.deathBox.hitTest(_root.mcMain._x , _root.mcMain._y, true))
 		{
 			//trace ('death')
-			mcMain._x = levelStart._x;
-			mcMain._y = levelStart._y;
+			gotoAndPlay(2);
 
 		}
 		//Move Player Up

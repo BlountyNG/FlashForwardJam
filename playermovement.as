@@ -1,11 +1,12 @@
 ﻿//WALKING FUNCTION
 function mainWalk():Void
 {
-	if(Key.isDown(82))//R
+	if(Key.isDown(82) && allowRestart)//R
 	{
 		//trace('Restart');
-		mcMain._x = levelStart._x;
-		mcMain._y = levelStart._y;
+		gotoAndPlay(2);
+		//mcMain._x = levelStart._x;
+		//mcMain._y = levelStart._y;
 	}
 	
 	if(Key.isDown(16))//sprint
@@ -68,7 +69,7 @@ function mainJump():Void
 		mainJumping = true;
 		jumpSpeed = jumpImpulsion*-2;
 		mcMain._y += jumpSpeed;
-		trace(jumpImpulsion);
+		//trace(jumpImpulsion);
 		}
 	}
 	else

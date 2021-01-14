@@ -6,7 +6,7 @@
 import flash.geom.Point;
 var point_1:Point = new Point(_root.camFrame._x, _root.camFrame._y);
 var point_2:Point = new Point(_root.mcMain._x, _root.mcMain._y);
-var interpolatedPoint:Point = Point.interpolate(point_1, point_2, .5);
+var interpolatedPoint:Point = Point.interpolate(point_1, point_2, .93);
 
 _root.camFrame._x = (interpolatedPoint.x);
 _root.camFrame._y = (interpolatedPoint.y);

@@ -1,7 +1,6 @@
 ﻿//Animation Functions
 function mainAnimate():Void
 {
-
 	//Falling
 	if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true)&& jumpSpeed > 1)
 	{
@@ -25,4 +24,10 @@ function mainAnimate():Void
 	{
 		mcMain.gotoAndStop(1);
 	}
+	
+	if (mainFloating)
+		{
+		mcMain.gotoAndStop(5);
+		mcMain._rotation -= 5;
+		}
 }

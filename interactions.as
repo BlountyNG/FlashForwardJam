@@ -3,8 +3,12 @@
 var JumpPads:InteractiveObj = new InteractiveObj(jumpPads, false, "jumppad");
 //Destructable Jump Pads
 var DestructableJP:InteractiveObj = new InteractiveObj(DjumpPads, true, "jumppad");
+//Collectable Coin
+var CoinsCollect:InteractiveObj = new InteractiveObj(cCoins, true, "coins");
 //Float Jump Power Up
-var FloatJump:InteractiveObj = new InteractiveObj(powerUps, true, "float");
+var FloatJumps:InteractiveObj = new InteractiveObj(floatJumps, true, "float");
+//Mega Jump Power Up
+var MegaJumps:InteractiveObj = new InteractiveObj(megaJumps, true, "megajump");
 
 //MY INTERACTIONS
 function mainInteractions(object:InteractiveObj):Void
@@ -37,8 +41,30 @@ var clipCycle:Array = new Array();
 		{
 			gravity = -3;
 			//trace(gravity);
+			allowRestart = false;
 			mainJumping = true;
+			mainFloating = true;
 			setTimeout(restoreGravity,3000);
+			if(object.Collectable == true)
+			{
+			unloadMovie(clipCycle[j]);
+			}
+		}
+		//Collecting Coins
+		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "coins"))
+		{
+			coinsCollected = coinsCollected +1;
+			trace("coins collected " + coinsCollected);
+			if(object.Collectable == true)
+			{
+			unloadMovie(clipCycle[j]);
+			}
+		}
+		//Mega Jump
+		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "megajump"))
+		{
+			jumpImpulsion = 2;
+			setTimeout(restoreJump,1000);
 			if(object.Collectable == true)
 			{
 			unloadMovie(clipCycle[j]);
@@ -49,7 +75,14 @@ var clipCycle:Array = new Array();
 
 function restoreGravity():Void
 {
-	mainJumping = true;
+	mainFloating = false;
 	gravity = 5;
+	mcMain._rotation = 0;
 	//trace(gravity);
+	allowRestart = true;
+}
+
+function restoreJump():Void
+{
+	jumpImpulsion = 10;
 }
