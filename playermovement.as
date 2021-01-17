@@ -59,34 +59,15 @@ function mainJump():Void
 	{
 		currentSpeed = mainSpeed;
 	}
-	
-	//if main isn't already jumping
+		//gravity
+		mcMain._y+=gravity;		
+		
 	if(!mainJumping)
 	{
 		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32))
 		{
-		//then start jumping
-		mainJumping = true;
-		jumpSpeed = jumpImpulsion*-2;
-		mcMain._y += jumpSpeed;
-		//trace(jumpImpulsion);
+		gravity = -7;
+       	mainJumping = true;
 		}
-	}
-	else
-	{
-		//if we're already jumping, then continue to do so
-		if(jumpSpeed < 0)
-		{
-			jumpSpeed *= 1 - jumpImpulsion/75;
-			if(jumpSpeed > -jumpImpulsion*.4){
-				jumpSpeed *= -.2;
-		}
-}
-		if(jumpSpeed > 0 && jumpSpeed <= jumpImpulsion)
-		{
-			jumpSpeed *= 1 + jumpImpulsion/35;
-		}
-			mcMain._y += jumpSpeed-10;
-		
 	}
 }

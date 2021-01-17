@@ -2,7 +2,7 @@
 function mainAnimate():Void
 {
 	//Falling
-	if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true)&& jumpSpeed > 1)
+	if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true)&& gravity > 1)
 	{
 		mcMain.gotoAndStop(4);
 	}
@@ -11,7 +11,6 @@ function mainAnimate():Void
 	{
 		//trace('jumping');
 		mcMain.gotoAndStop(3);
-		break;
 	}
 	
 	//Running Animation

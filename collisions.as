@@ -1,6 +1,9 @@
 ﻿//Collisions
 function mainCollisions():Void
 {
+		//gravity
+		mcMain._y+=gravity;	
+		
 		//Death Box
 		if (_root.deathBox.hitTest(_root.mcMain._x , _root.mcMain._y, true))
 		{
@@ -9,19 +12,20 @@ function mainCollisions():Void
 
 		}
 		//Move Player Up
-		while (_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
+		while(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
 		{
 			//trace(hit);
 			//trace('up');
 			//hit = hit + 1;
 			mainJumping = false;
 			mcMain._y -= collide;
+			gravity = 0;
 		}
 		//Move Player Down
 		if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true))
 		{
-			//trace('down');
-			mcMain._y += gravity;
+			gravity += 0.2;
+			
 		}
 		//Bounce Head
 		while(_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y - (_root.mcMain._height), true))
