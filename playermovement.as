@@ -1,6 +1,19 @@
 ﻿//WALKING FUNCTION
 function mainWalk():Void
 {
+	if(Key.isDown(37) || Key.isDown(65) || Key.isDown(68) || Key.isDown(39))
+	{
+		mainSpeed += 0.1;
+		if(mainSpeed>5) 
+		{
+		mainSpeed = 5;
+		}
+	}
+	else
+	{
+		mainSpeed = 0;
+	}
+	
 	if(Key.isDown(82) && allowRestart)//R
 	{
 		//trace('Restart');

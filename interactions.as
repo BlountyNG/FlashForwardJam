@@ -38,6 +38,7 @@ var clipCycle:Array = new Array();
 		//Float Power Up
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "float"))
 		{
+			mcMain._y = -1;
 			gravity = gravity-10;
 			//trace(gravity);
 			allowRestart = false;

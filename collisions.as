@@ -23,6 +23,7 @@ function mainCollisions():Void
 		//Move Player Down
 		if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true) && !mainFloating)
 		{
+			//mcMain._y +=collide;
 			gravity += 0.3;
 			
 		}

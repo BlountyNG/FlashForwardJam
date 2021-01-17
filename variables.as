@@ -1,5 +1,5 @@
 ﻿//The main speeds of the character
-var mainSpeed:Number = 5;
+var mainSpeed:Number;
 var currentSpeed:Number;
 var jumpMoveSpeed:Number = 5;
 var gravity:Number = 5;
