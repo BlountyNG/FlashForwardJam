@@ -60,13 +60,13 @@ function mainJump():Void
 		currentSpeed = mainSpeed;
 	}
 		//gravity
-		mcMain._y+=gravity;		
+		mcMain._y += gravity;		
 		
 	if(!mainJumping)
 	{
 		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32))
 		{
-		gravity = -7;
+		gravity = gravity-jumpStrength;
        	mainJumping = true;
 		}
 	}

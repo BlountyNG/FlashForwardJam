@@ -1,8 +1,7 @@
 ﻿//Collisions
 function mainCollisions():Void
 {
-		//gravity
-		mcMain._y+=gravity;	
+		
 		
 		//Death Box
 		if (_root.deathBox.hitTest(_root.mcMain._x , _root.mcMain._y, true))
@@ -22,9 +21,9 @@ function mainCollisions():Void
 			gravity = 0;
 		}
 		//Move Player Down
-		if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true))
+		if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true) && !mainFloating)
 		{
-			gravity += 0.2;
+			gravity += 0.3;
 			
 		}
 		//Bounce Head

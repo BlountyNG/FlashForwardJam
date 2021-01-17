@@ -28,8 +28,7 @@ var clipCycle:Array = new Array();
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "jumppad"))
 		{
 			//trace('PadUp');
-			jumpSpeed = jumpImpulsion*-4;
-			mcMain._y += jumpSpeed;
+			gravity = -15;
 			mainJumping = true;
 			if(object.Collectable == true)
 			{
@@ -39,7 +38,7 @@ var clipCycle:Array = new Array();
 		//Float Power Up
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "float"))
 		{
-			gravity = -3;
+			gravity = gravity-10;
 			//trace(gravity);
 			allowRestart = false;
 			mainJumping = true;
@@ -63,8 +62,8 @@ var clipCycle:Array = new Array();
 		//Mega Jump
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "megajump"))
 		{
-			jumpImpulsion = 2;
-			setTimeout(restoreJump,1000);
+			jumpStrength =  jumpStrength*1.5;
+			setTimeout(restoreJump,5000);
 			if(object.Collectable == true)
 			{
 			unloadMovie(clipCycle[j]);
@@ -84,5 +83,5 @@ function restoreGravity():Void
 
 function restoreJump():Void
 {
-	jumpImpulsion = 10;
+	jumpStrength = 10;
 }

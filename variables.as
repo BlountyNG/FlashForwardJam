@@ -10,9 +10,8 @@ var mainRunning:Boolean = false;
 //whether or not the main guy is jumping
 var mainJumping:Boolean = true;
 //how quickly should the jump start off
-var jumpImpulsion:Number = 10;
-//the current speed of the jump;
-var jumpSpeed:Number = jumpImpulsion;
+var jumpStrength:Number = 10;
+
 
 
 
