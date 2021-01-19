@@ -8,7 +8,7 @@ function mainAnimate():Void
 		mainFalling = true;
 	}
 	//Jumping Animation
-	else if(mainJumping && gravity < 0)
+	else if(gravity < 0)
 	{
 		//trace('jumping');
 		mcMain.gotoAndStop(3);

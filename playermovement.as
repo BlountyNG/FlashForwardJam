@@ -72,27 +72,24 @@ function mainJump():Void
 	{
 		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32))
 		{	
-			jumpStrength += .5;
+			jumpStrength += .3;
 			gravity -=jumpStrength;
 			currentSpeed = jumpMoveSpeed
-			if(jumpStrength > 7)
+			
+			if(gravity < -7)
 			{
-				jumpStrength = 0;
-				mainJumping = true;
-			}
-			if(gravity < -7) 
-			{
-				
 				jumpStrength = 0;
 				mainJumping = true;
 			}
 		}
 		else
 		{
-			jumpStrength = 0;
 			currentSpeed = mainSpeed;
 			mainJumping = true;
 		}
+		
+		if(!Key.isDown(38) || !Key.isDown(87)|| !Key.isDown(32))
+			jumpStrength = 3;
 	}
 }
 /*
