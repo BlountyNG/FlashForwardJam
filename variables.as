@@ -1,23 +1,29 @@
-﻿//The main speeds of the character
+﻿//Movement
+
+//Idle
+var mainIdle:Boolean = true;
+
+//Running
+var mainRunning: Boolean = false;
 var mainSpeed:Number;
 var currentSpeed:Number;
 var jumpMoveSpeed:Number = 5;
 var gravity:Number = 5;
 
-var mainRunning:Boolean = false;
-
-//JUMPING VARIABLES
-//whether or not the main guy is jumping
-var mainJumping:Boolean = true;
-//how quickly should the jump start off
+//Jumping
+var mainJumping:Boolean = false;
 var jumpStrength:Number = 10;
 
+//Falling
+var mainFalling:Boolean = false;
 
+//Floating
+var mainFloating:Boolean = false;
 
-
-//COLLISION VARIABLES
-var hit:Number = 0;
+//Collision
 var collide:Number = 1;
+
+//Other
 
 //Level Variables
 var currentLevel:Number = 2;

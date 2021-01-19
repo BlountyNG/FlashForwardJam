@@ -8,7 +8,13 @@ function mainCollisions():Void
 		{
 			//trace ('death')
 			gotoAndPlay(2);
-
+		}
+		
+		//gravity
+		if(!mainFloating)
+		{
+		 	gravity += 0.3;
+			mcMain._y += gravity;
 		}
 		//Move Player Up
 		while(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
@@ -19,13 +25,6 @@ function mainCollisions():Void
 			mainJumping = false;
 			mcMain._y -= collide;
 			gravity = 0;
-		}
-		//Move Player Down
-		if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true) && !mainFloating)
-		{
-			//mcMain._y +=collide;
-			gravity += 0.3;
-			
 		}
 		//Bounce Head
 		while(_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y - (_root.mcMain._height), true))

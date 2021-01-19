@@ -5,9 +5,10 @@ function mainAnimate():Void
 	if(!_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y, true)&& gravity > 1)
 	{
 		mcMain.gotoAndStop(4);
+		mainFalling = true;
 	}
 	//Jumping Animation
-	else if(mainJumping)
+	else if(mainJumping && gravity < 0)
 	{
 		//trace('jumping');
 		mcMain.gotoAndStop(3);

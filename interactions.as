@@ -39,7 +39,6 @@ var clipCycle:Array = new Array();
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "float"))
 		{
 			mcMain._y = -1;
-			gravity = gravity-10;
 			//trace(gravity);
 			allowRestart = false;
 			mainJumping = true;
