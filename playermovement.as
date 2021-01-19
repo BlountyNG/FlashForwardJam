@@ -67,15 +67,14 @@ function mainRun():Void
 //JUMPING FUNCTION
 function mainJump():Void
 {
-	trace(gravity);
 	if(!mainJumping)
 	{
 		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32))
 		{	
+			mainCanJump = false;
 			jumpStrength += .3;
 			gravity -=jumpStrength;
 			currentSpeed = jumpMoveSpeed
-			
 			if(gravity < -7)
 			{
 				jumpStrength = 0;
@@ -87,19 +86,10 @@ function mainJump():Void
 			currentSpeed = mainSpeed;
 			mainJumping = true;
 		}
-		
-		if(!Key.isDown(38) || !Key.isDown(87)|| !Key.isDown(32))
-			jumpStrength = 3;
-	}
-}
-/*
-//FALLING FUNCTION
-function mainFall():Void
-{	
-	if(mainFalling && gravity < 0)
-	{
-		gravity = gravity++;
 	}
 	
+	if(!Key.isDown(38) || !Key.isDown(87)|| !Key.isDown(32))
+	{
+		jumpStrength = 3;
+	}
 }
-*/

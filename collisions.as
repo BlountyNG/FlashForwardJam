@@ -1,8 +1,6 @@
 ﻿//Collisions
 function mainCollisions():Void
-{
-		
-		
+{		
 		//Death Box
 		if (_root.deathBox.hitTest(_root.mcMain._x , _root.mcMain._y, true))
 		{
@@ -11,11 +9,9 @@ function mainCollisions():Void
 		}
 		
 		//gravity
-		if(!mainFloating)
-		{
-		 	gravity += 0.3;
-			mcMain._y += gravity;
-		}
+		gravity += 0.3;
+		mcMain._y += gravity;
+		
 		//Move Player Up
 		while(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
 		{
