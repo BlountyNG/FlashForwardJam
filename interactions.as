@@ -38,7 +38,7 @@ var clipCycle:Array = new Array();
 		//Float Power Up
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "float"))
 		{
-			mcMain._y = -1;
+			_global.gravity = -10;
 			//trace(gravity);
 			allowRestart = false;
 			mainJumping = true;
@@ -62,7 +62,7 @@ var clipCycle:Array = new Array();
 		//Mega Jump
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "megajump"))
 		{
-			jumpStrength =  jumpStrength*1.5;
+			jumpStrength = jumpStrength*10;
 			setTimeout(restoreJump,5000);
 			if(object.Collectable == true)
 			{

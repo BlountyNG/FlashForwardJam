@@ -72,9 +72,9 @@ function mainJump():Void
 		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32))
 		{	
 			mainCanJump = false;
-			jumpStrength += .3;
-			gravity -=jumpStrength;
-			currentSpeed = jumpMoveSpeed
+			jumpStrength += 0.3;
+			gravity -= jumpStrength;
+			currentSpeed = jumpMoveSpeed;
 			if(gravity < -7)
 			{
 				jumpStrength = 0;
@@ -84,7 +84,6 @@ function mainJump():Void
 		else
 		{
 			currentSpeed = mainSpeed;
-			mainJumping = true;
 		}
 	}
 	

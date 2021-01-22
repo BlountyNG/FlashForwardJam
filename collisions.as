@@ -13,6 +13,12 @@ function mainCollisions():Void
 			deathAnimate();
 		}
 		
+		if (_root.levelDoor.hitTest(_root.mcMain._x , _root.mcMain._y, true))
+		{
+			currentLevel = +1
+			gotoAndStop(currentLevel);
+		}
+		
 		//gravity
 		gravity += 0.3;
 		mcMain._y += gravity;

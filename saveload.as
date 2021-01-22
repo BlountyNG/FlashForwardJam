@@ -5,7 +5,7 @@ function Save():Void
     _root.savefile = SharedObject.getLocal("FFJ");
     _root.savefile.data.x = _root.mcMain._x;
 	_root.savefile.data.y = _root.mcMain._y;
-	trace("save");
+	//trace("save");
 
 }
 
@@ -15,7 +15,7 @@ function Load():Void
     _root.mcMain._x = _root.savefile.data.x;
 	_root.mcMain._y = _root.savefile.data.y;
 	savefile.flush();
-	trace("load");
+	//trace("load");
 
 }
 
