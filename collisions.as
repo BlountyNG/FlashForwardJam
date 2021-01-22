@@ -1,11 +1,16 @@
-﻿//Collisions
+﻿#include "saveload.as"
+#include "animation.as"
+
+//Collisions
 function mainCollisions():Void
 {		
 		//Death Box
 		if (_root.deathBox.hitTest(_root.mcMain._x , _root.mcMain._y, true))
 		{
 			//trace ('death')
-			gotoAndPlay(2);
+			//gotoAndPlay(2);
+			Load();
+			deathAnimate();
 		}
 		
 		//gravity
@@ -21,6 +26,12 @@ function mainCollisions():Void
 			mainJumping = false;
 			mcMain._y -= collide;
 			gravity = 0;
+			
+		if(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true) && mainIdle)
+		{
+			Save();
+		}
+		
 		}
 		//Bounce Head
 		while(_root.ground.hitTest(_root.mcMain._x,_root.mcMain._y - (_root.mcMain._height), true))

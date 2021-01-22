@@ -31,3 +31,8 @@ function mainAnimate():Void
 		mcMain._rotation -= 5;
 		}
 }
+
+function deathAnimate() :Void
+{	
+	
+}
