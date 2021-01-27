@@ -23,3 +23,8 @@ function Clear():Void
 {
     _root.myData.clear();
 }
+
+if(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true) && mainIdle)
+		{
+			Save();
+		}

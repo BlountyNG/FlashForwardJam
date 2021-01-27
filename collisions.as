@@ -1,6 +1,9 @@
 ﻿#include "saveload.as"
 #include "animation.as"
 
+//Collision
+var collide:Number = 1;
+
 //Collisions
 function mainCollisions():Void
 {		

@@ -1,4 +1,27 @@
-﻿//WALKING FUNCTION
+﻿//Movement
+
+//Idle
+var mainIdle:Boolean = true;
+
+//Running
+var mainRunning: Boolean = false;
+var mainSpeed:Number;
+var currentSpeed:Number;
+var jumpMoveSpeed:Number = 5;
+var gravity:Number = 5;
+
+//Jumping
+var mainJumping:Boolean = false;
+var jumpStrength:Number = 10;
+
+//Falling
+var mainFalling:Boolean = false;
+
+//Floating
+var mainFloating:Boolean = false;
+
+
+//WALKING FUNCTION
 function mainRun():Void
 {
 	if(!manRunning)
@@ -65,30 +88,25 @@ function mainRun():Void
 }
 
 //JUMPING FUNCTION
+
 function mainJump():Void
 {
 	if(!mainJumping)
 	{
 		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32))
 		{	
-			mainCanJump = false;
-			jumpStrength += 0.3;
-			gravity -= jumpStrength;
+			gravity -= 1;
 			currentSpeed = jumpMoveSpeed;
+			trace(gravity);
 			if(gravity < -7)
 			{
-				jumpStrength = 0;
 				mainJumping = true;
 			}
 		}
 		else
 		{
 			currentSpeed = mainSpeed;
+			
 		}
-	}
-	
-	if(!Key.isDown(38) || !Key.isDown(87)|| !Key.isDown(32))
-	{
-		jumpStrength = 3;
 	}
 }

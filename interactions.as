@@ -1,4 +1,9 @@
-﻿//MY INTERACTIVE OBJECTS
+﻿//Level Variables
+var currentLevel:Number = 2;
+var allowRestart:Boolean = true;
+var coinsCollected:Number = 0;
+
+//MY INTERACTIVE OBJECTS
 //Regular Jump Pads
 var JumpPads:InteractiveObj = new InteractiveObj(jumpPads, false, "jumppad");
 //Destructable Jump Pads
