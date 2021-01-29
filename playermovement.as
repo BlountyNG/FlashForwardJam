@@ -26,7 +26,7 @@ function mainRun():Void
 {
 	if(!manRunning)
 	{
-		if(Key.isDown(37) || Key.isDown(65) || Key.isDown(68) || Key.isDown(39))
+		if(Key.isDown(37) || Key.isDown(39))
 		{
 			mainSpeed += 0.1;
 			if(mainSpeed>5) 
@@ -58,7 +58,7 @@ function mainRun():Void
 		}
 
  		//if the "A" key or Left Arrow Key is Down
-		if(Key.isDown(37) || Key.isDown(65))
+		if(Key.isDown(37))
 		{
 			//then move left
 			mcMain._x -= _global.currentSpeed;
@@ -69,7 +69,7 @@ function mainRun():Void
 		}
 	
 		//if the "D" key or Right Arrow Key is Down
-		else if(Key.isDown(39) || Key.isDown(68))
+		else if(Key.isDown(39))
 		{
 			 //then move the guy to the right
 			mcMain._x += _global.currentSpeed;
@@ -93,11 +93,10 @@ function mainJump():Void
 {
 	if(!mainJumping)
 	{
-		if(Key.isDown(38) || Key.isDown(87)|| Key.isDown(32))
+		if(Key.isDown(38))
 		{	
 			gravity -= 1;
 			currentSpeed = jumpMoveSpeed;
-			trace(gravity);
 			if(gravity < -7)
 			{
 				mainJumping = true;
@@ -107,6 +106,10 @@ function mainJump():Void
 		{
 			currentSpeed = mainSpeed;
 			
+		}
+		if(!Key.isDown(38))
+		{
+			mainJumping = true;
 		}
 	}
 }
