@@ -1,4 +1,6 @@
-﻿//Movement
+﻿#include "saveload.as"
+
+//Movement
 
 //Idle
 var mainIdle:Boolean = true;
@@ -42,9 +44,9 @@ function mainRun():Void
 		if(Key.isDown(82) && allowRestart)//R
 		{
 			//trace('Restart');
-			gotoAndPlay(2);
-			//mcMain._x = levelStart._x;
-			//mcMain._y = levelStart._y;
+			//gotoAndPlay(2);
+			mcMain._x = levelStart._x
+			mcMain._y = levelStart._y
 		}
 	
 		if(Key.isDown(16))//sprint

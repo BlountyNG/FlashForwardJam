@@ -9,6 +9,7 @@ function Save():Void
 
 }
 
+
 function Load():Void
 {
     _root.savefile = SharedObject.getLocal("FFJ");
