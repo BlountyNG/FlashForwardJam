@@ -33,6 +33,7 @@ var clipCycle:Array = new Array();
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "jumppad"))
 		{
 			//trace('PadUp');
+			object.ObjName[i].gotoAndPlay(2);
 			gravity = -15;
 			mainJumping = true;
 			if(object.Collectable == true)
