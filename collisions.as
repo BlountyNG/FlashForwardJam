@@ -26,7 +26,7 @@ function mainCollisions():Void
 		mcMain._y += gravity;
 		
 		//Move Player Up
-		while(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
+		while(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y, true))
 		{
 			//trace(hit);
 			//trace('up');

@@ -9,7 +9,7 @@ var point_2:Point = new Point(_root.mcMain._x, _root.mcMain._y);
 var interpolatedPoint:Point = Point.interpolate(point_1, point_2, .93);
 
 _root.camFrame._x = (interpolatedPoint.x);
-_root.camFrame._y = (interpolatedPoint.y);
+_root.camFrame._y = (interpolatedPoint.y -5);
 
 _root.Bbuildings._x = (interpolatedPoint.x/2);
 _root.Bbuildings._y = (interpolatedPoint.y/1.2 + 150);
