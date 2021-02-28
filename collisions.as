@@ -33,8 +33,8 @@ function mainCollisions():Void
 		
 		if (_root.levelDoor.hitTest(_root.mcMain._x , _root.mcMain._y, true) &&portalActive)
 		{
-			currentLevel = +1
-			gotoAndStop(currentLevel);
+			//currentLevel = +1
+			_root.gotoAndStop(4);
 		}
 		
 		//gravity

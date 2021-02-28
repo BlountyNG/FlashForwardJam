@@ -1,5 +1,5 @@
 ﻿//Level Variables
-var currentLevel:Number = 2;
+var currentLevel:Number = 3;
 var allowRestart:Boolean = true;
 var coinsCollected:Number = 0;
 
