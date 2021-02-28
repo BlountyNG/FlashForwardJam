@@ -1,7 +1,10 @@
 ﻿#include "saveload.as"
+#include "interactions.as"
 
 //Collision
 var collide:Number = .1;
+
+var portalActive:Boolean = false;
 
 //Collisions
 function mainCollisions():Void
@@ -22,7 +25,13 @@ function mainCollisions():Void
 			trace("checkpoint")
 		}
 		
-		if (_root.levelDoor.hitTest(_root.mcMain._x , _root.mcMain._y, true))
+		if(coinsCollected == 9)
+		{
+			portalActive = true;
+			_root.Portal.gotoAndStop(2);
+		}
+		
+		if (_root.levelDoor.hitTest(_root.mcMain._x , _root.mcMain._y, true) &&portalActive)
 		{
 			currentLevel = +1
 			gotoAndStop(currentLevel);

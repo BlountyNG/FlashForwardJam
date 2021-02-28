@@ -58,7 +58,7 @@ var clipCycle:Array = new Array();
 		//Collecting Coins
 		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "coins"))
 		{
-			coinsCollected = coinsCollected +1;
+			coinsCollected++;
 			trace("coins collected " + coinsCollected);
 			if(object.Collectable == true)
 			{
