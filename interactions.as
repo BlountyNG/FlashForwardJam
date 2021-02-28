@@ -91,3 +91,4 @@ function restoreJump():Void
 {
 	jumpStrength = 10;
 }
+

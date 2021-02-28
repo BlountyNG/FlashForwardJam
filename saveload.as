@@ -25,7 +25,9 @@ function Clear():Void
     _root.myData.clear();
 }
 
-if(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true) && mainIdle)
+/*if(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
 		{
 			Save();
-		}
+			_root.checkPoint.gotoAndPlay(2);
+			trace("checkpoint")
+		}*/

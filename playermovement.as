@@ -1,12 +1,10 @@
-﻿#include "saveload.as"
-
-//Movement
+﻿//Movement
 
 //Idle
 var mainIdle:Boolean = true;
 
 //Running
-var mainRunning: Boolean = false;
+var maincanMove: Boolean = true;
 var mainSpeed:Number;
 var currentSpeed:Number;
 var jumpMoveSpeed:Number = 5;
@@ -22,11 +20,13 @@ var mainFalling:Boolean = false;
 //Floating
 var mainFloating:Boolean = false;
 
+//Crouch
+var mainCrouch:Boolean = false;
 
 //WALKING FUNCTION
 function mainRun():Void
 {
-	if(!manRunning)
+	if(manCanMove)
 	{
 		if(Key.isDown(37) || Key.isDown(39))
 		{
@@ -113,5 +113,24 @@ function mainJump():Void
 		{
 			mainJumping = true;
 		}
+	}
+}
+
+//CROUCHING FUNCTION
+
+function mainCrouching():Void
+{
+	if(Key.isDown(40))
+	{
+		mainCrouch = true;
+		mainSpeed = 0;
+		manCanMove = false;
+		mainJumping = true;
+	}
+	else
+	{
+		mainCrouch = false;
+		manCanMove = true;
+		
 	}
 }

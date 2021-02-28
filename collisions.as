@@ -15,6 +15,13 @@ function mainCollisions():Void
 			deathAnimate();
 		}
 		
+		if(_root.checkPoint.hitTest(_root.mcMain._x ,_root.mcMain._y , true))
+		{
+			Save();
+			_root.checkPoint.gotoAndPlay(2);
+			trace("checkpoint")
+		}
+		
 		if (_root.levelDoor.hitTest(_root.mcMain._x , _root.mcMain._y, true))
 		{
 			currentLevel = +1
@@ -22,7 +29,9 @@ function mainCollisions():Void
 		}
 		
 		//gravity
+		
 		gravity += 0.3;
+		
 		mcMain._y += gravity;
 		
 		//Move Player Up
@@ -34,11 +43,6 @@ function mainCollisions():Void
 			mainJumping = false;
 			mcMain._y -= collide;
 			gravity = 0;
-			
-		if(_root.ground.hitTest(_root.mcMain._x ,_root.mcMain._y , true) && mainIdle)
-		{
-			Save();
-		}
 		
 		}
 		//Bounce Head
