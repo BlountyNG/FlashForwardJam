@@ -25,7 +25,7 @@ function mainCollisions():Void
 			trace("checkpoint")
 		}
 		
-		if(coinsCollected == 9)
+		if(coinsCollected == 7)
 		{
 			portalActive = true;
 			_root.Portal.gotoAndStop(2);

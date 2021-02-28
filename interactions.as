@@ -10,6 +10,8 @@ var JumpPads:InteractiveObj = new InteractiveObj(jumpPads, false, "jumppad");
 var DestructableJP:InteractiveObj = new InteractiveObj(DjumpPads, true, "jumppad");
 //Collectable Coin
 var CoinsCollect:InteractiveObj = new InteractiveObj(cCoins, true, "coins");
+//Collectable Secret
+var SecretCollect:InteractiveObj = new InteractiveObj(cSecret, true, "secret");
 //Float Jump Power Up
 var FloatJumps:InteractiveObj = new InteractiveObj(floatJumps, true, "float");
 //Mega Jump Power Up
@@ -60,6 +62,16 @@ var clipCycle:Array = new Array();
 		{
 			coinsCollected++;
 			trace("coins collected " + coinsCollected);
+			if(object.Collectable == true)
+			{
+			unloadMovie(clipCycle[j]);
+			}
+		}
+		//Collecting Secret
+		if (_root.mcMain.hitTest(clipCycle[j]) && (object.isType == "secret"))
+		{
+			secretCollected++;
+			trace("secret collected");
 			if(object.Collectable == true)
 			{
 			unloadMovie(clipCycle[j]);
